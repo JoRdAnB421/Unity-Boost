@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{ece76e3c-de9d-5a12-d7f4-83714b9809c5}</ProjectGuid>
+    <ProjectGuid>{9f84c244-d872-0918-69d9-f30d6202aeea}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Movement.cs" />
+     <Compile Include="Assets\Scripts\CollisionHandler.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -260,7 +261,7 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -608,34 +609,34 @@
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+        <HintPath>C:/Users/jorda/OneDrive/Documents/Unity stuff/Udemy Course/Boost/Unity-Boost/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
