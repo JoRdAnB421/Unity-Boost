@@ -6,16 +6,21 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rotationThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
+
+    [SerializeField] ParticleSystem leftThruster;
+    [SerializeField] ParticleSystem rightThruster;
+    [SerializeField] ParticleSystem mainThruster;
+
     Rigidbody rb;
     AudioSource audioSource;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ProcessThrust();
@@ -24,29 +29,52 @@ public class Movement : MonoBehaviour
 
     void ProcessThrust()
     {
+        // need to work out how to switch off particle effect when transitioning
+        
         if (Input.GetKey(KeyCode.Space))
         {
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+            
+            if (!mainThruster.isPlaying)
+            {
+                mainThruster.Play();
+            }
         }
         else
         {
             audioSource.Stop();
+            mainThruster.Stop();
         }
     }
     void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationThrust);
+            if (!rightThruster.isPlaying)
+            {
+                rightThruster.Play();
+            }
+
+            ApplyRotation(rotationThrust); 
         }
 
         else if (Input.GetKey(KeyCode.D))
-        {
+        { 
+           if (!leftThruster.isPlaying)
+            {
+                leftThruster.Play();
+            }
             ApplyRotation(-rotationThrust);
+        }
+        
+        else
+        {
+            rightThruster.Stop();
+            leftThruster.Stop();
         }
     }
 
