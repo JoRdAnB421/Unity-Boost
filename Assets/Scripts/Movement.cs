@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rotationThrust = 100f;
     [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip sideThrusters;
 
     [SerializeField] ParticleSystem leftThruster;
     [SerializeField] ParticleSystem rightThruster;
@@ -14,6 +15,9 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
     AudioSource audioSource;
+
+    bool mainThrustIsOn = false;
+    bool sideThrustIsOn = false;
 
     void Start()
     {
@@ -33,49 +37,68 @@ public class Movement : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space))
         {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.PlayOneShot(mainEngine);
-            }
-            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            
-            if (!mainThruster.isPlaying)
-            {
-                mainThruster.Play();
-            }
+            StartThrusting();
         }
         else
         {
-            audioSource.Stop();
-            mainThruster.Stop();
+            StopThrusting();
         }
     }
+
     void ProcessRotation()
     {
         if (Input.GetKey(KeyCode.A))
         {
-            if (!rightThruster.isPlaying)
-            {
-                rightThruster.Play();
-            }
-
-            ApplyRotation(rotationThrust); 
+            RotateLeft();
         }
 
         else if (Input.GetKey(KeyCode.D))
-        { 
-           if (!leftThruster.isPlaying)
-            {
-                leftThruster.Play();
-            }
-            ApplyRotation(-rotationThrust);
+        {
+            RotateRight();
         }
-        
+
         else
         {
-            rightThruster.Stop();
-            leftThruster.Stop();
+            StopRotating();
         }
+    }
+
+    void StartThrusting()
+    {
+        mainThrustIsOn = true;
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+
+        if (!mainThruster.isPlaying)
+        {
+            mainThruster.Play();
+        }
+    }
+
+    void StopThrusting()
+    {
+        if (mainThrustIsOn)
+        {
+            audioSource.Stop();
+        }
+
+        mainThruster.Stop();
+        mainThrustIsOn = false;
+    }
+
+    void StopRotating()
+    {
+        if (sideThrustIsOn)
+        {
+            audioSource.Stop();
+        }
+        rightThruster.Stop();
+        leftThruster.Stop();
+        sideThrustIsOn = false;
     }
 
     void ApplyRotation(float rotationThisFrame)
@@ -84,5 +107,39 @@ public class Movement : MonoBehaviour
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
         rb.freezeRotation = false; // unfreezing the rotation so the physics rotation takes over
     }
+
+    void RotateRight()
+    {
+        sideThrustIsOn = true;
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(sideThrusters);
+        }
+
+        if (!leftThruster.isPlaying)
+        {
+            leftThruster.Play();
+        }
+        ApplyRotation(-rotationThrust);
+    }
+
+    void RotateLeft()
+    {
+        sideThrustIsOn = true;
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(sideThrusters);
+        }
+
+        if (!rightThruster.isPlaying)
+        {
+            rightThruster.Play();
+        }
+
+        ApplyRotation(rotationThrust);
+    }
+
 }
 
